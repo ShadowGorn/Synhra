@@ -1,0 +1,386 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$io.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$Q\+Core\+Application$>$}\newline
+{\ttfamily \#include $<$Q\+String$>$}\newline
+{\ttfamily \#include $<$Q\+Map$>$}\newline
+{\ttfamily \#include $<$Q\+Vector$>$}\newline
+{\ttfamily \#include $<$Q\+Text\+Stream$>$}\newline
+{\ttfamily \#include $<$Q\+File$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structerror}{error}
+\begin{DoxyCompactList}\small\item\em Описание ошибки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffd}{error\+Type} \{ \newline
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda5e220c71ebe50986575a3f0669275e18}{no\+File\+In}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda795bd0062814d5f6b0d1cffccc2c23c9}{no\+Name\+Out}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa862ab67d12af39f8f791bb73b7549cd}{no\+Exist\+File}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdab25cfe4e987bbcecacea8a0a1c2cdf1a}{no\+Open\+File}, 
+\newline
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaf72aa021375766e70b46660575e2b7d0}{no\+Action}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda2a2d459192dd72c2fdbd907578b5915a}{no\+Mode}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdae51c6d4b6b2e78ad9854f2ba82abd8f4}{duplicate\+Action}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa57b8fa0070b01df42e79d68e9939fac}{invalid\+Char}, 
+\newline
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda903346f0a66554d4839c39ceb99a67da}{no\+Describe\+Mode}, 
+\hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdad98d46d29c04d2062313a75bdeabe7cf}{no\+Open\+Mode}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_ac7c9d2034bdb319a0d950c60e3d49f71}{q\+Error} (Q\+String \hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция записи ошибки в поток ошибок \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_a2da1f09170f50865fafc230f89a8d076}{check\+Arguments} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{structerror}{error} \&\hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция проверяющая аргументы командной строки \end{DoxyCompactList}\item 
+void \hyperlink{main_8cpp_a382a0dcc83833900921f4adfaee778a3}{match\+Modes} (const Q\+Map$<$ int, Q\+String $>$ \&match, const Q\+Vector$<$ int $>$ \&chain, Q\+Vector$<$ Q\+String $>$ \&mapped\+Modes)
+\begin{DoxyCompactList}\small\item\em Функция сопоставления режимов с действиями пользователя \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_ad8b84e7b624ddfa5d6c57154a1ad907b}{read\+Match} (const Q\+String \&filename, Q\+String\+List \&match\+List, \hyperlink{structerror}{error} \&\hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция чтения текста из входного файла с соответствиями \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_a90e977778f833d9619731624da4639d8}{read\+Chain} (const Q\+String \&filename, Q\+String \&string\+Chain, \hyperlink{structerror}{error} \&\hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция чтения текста из входных файлов \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_ae6afbc1880937c743b2b772610481879}{put\+To\+Map} (Q\+String\+List \&match\+List, Q\+Map$<$ int, Q\+String $>$ \&match)
+\begin{DoxyCompactList}\small\item\em Функция, переписывающая считанные данные файла в контейнер Q\+Map. \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_ae9a205a86702d433cdf662af57b764be}{put\+To\+Vector} (const Q\+String \&string\+Chain, Q\+Vector$<$ int $>$ \&chain, const Q\+Map$<$ int, Q\+String $>$ \&match)
+\begin{DoxyCompactList}\small\item\em Функция, переписывающая считанные данные файла в контейнер Q\+Vector. \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_ab1a60efa5be8f820e68848c832c3882d}{check\+Match} (Q\+String \&match\+List, \hyperlink{structerror}{error} \&\hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция проверки строки с соответствием действия и режима \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_a541aa5375d6ecd11d7f4b0f81c6a15cb}{check\+Chain} (Q\+String \&string\+Chain, \hyperlink{structerror}{error} \&\hyperlink{structerror}{error})
+\begin{DoxyCompactList}\small\item\em Функция проверки строки с последовательностью действий \end{DoxyCompactList}\item 
+bool \hyperlink{main_8cpp_ac5475742b333e915ab16a2494c46d752}{write\+Data} (const Q\+Vector$<$ Q\+String $>$ \&mapped\+Modes, const Q\+String \&newfilename)
+\begin{DoxyCompactList}\small\item\em Функция, записывающая выходной текст в файл \end{DoxyCompactList}\item 
+int \hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Главная функция программы \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Главный файл программы 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffd}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffd}} 
+\index{main.\+cpp@{main.\+cpp}!error\+Type@{error\+Type}}
+\index{error\+Type@{error\+Type}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{error\+Type}{errorType}}
+{\footnotesize\ttfamily enum \hyperlink{main_8cpp_a0455f547a8d97c35c868b184e0c92ffd}{error\+Type}}
+
+Перечисление типов ошибок. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+File\+In@{no\+File\+In}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+File\+In@{no\+File\+In}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda5e220c71ebe50986575a3f0669275e18}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda5e220c71ebe50986575a3f0669275e18}} 
+no\+File\+In&Нет имени входного файла \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Name\+Out@{no\+Name\+Out}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Name\+Out@{no\+Name\+Out}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda795bd0062814d5f6b0d1cffccc2c23c9}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda795bd0062814d5f6b0d1cffccc2c23c9}} 
+no\+Name\+Out&Нет имени выходного файла \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Exist\+File@{no\+Exist\+File}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Exist\+File@{no\+Exist\+File}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa862ab67d12af39f8f791bb73b7549cd}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa862ab67d12af39f8f791bb73b7549cd}} 
+no\+Exist\+File&Входного файла с указанным именем не существует \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Open\+File@{no\+Open\+File}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Open\+File@{no\+Open\+File}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdab25cfe4e987bbcecacea8a0a1c2cdf1a}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdab25cfe4e987bbcecacea8a0a1c2cdf1a}} 
+no\+Open\+File&Входной файл не удалось открыть \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Action@{no\+Action}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Action@{no\+Action}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaf72aa021375766e70b46660575e2b7d0}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaf72aa021375766e70b46660575e2b7d0}} 
+no\+Action&Отсутствие номера действия в соответствии режимов \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Mode@{no\+Mode}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Mode@{no\+Mode}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda2a2d459192dd72c2fdbd907578b5915a}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda2a2d459192dd72c2fdbd907578b5915a}} 
+no\+Mode&В соответствии отсутствует описание режима \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{duplicate\+Action@{duplicate\+Action}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!duplicate\+Action@{duplicate\+Action}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdae51c6d4b6b2e78ad9854f2ba82abd8f4}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdae51c6d4b6b2e78ad9854f2ba82abd8f4}} 
+duplicate\+Action&В соответствии несколько раз содержится номер действия \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{invalid\+Char@{invalid\+Char}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!invalid\+Char@{invalid\+Char}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa57b8fa0070b01df42e79d68e9939fac}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdaa57b8fa0070b01df42e79d68e9939fac}} 
+invalid\+Char&В последовательность входит недопустимый символ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Describe\+Mode@{no\+Describe\+Mode}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Describe\+Mode@{no\+Describe\+Mode}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda903346f0a66554d4839c39ceb99a67da}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffda903346f0a66554d4839c39ceb99a67da}} 
+no\+Describe\+Mode&Имеется номер, для которого не описан режим \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\+Open\+Mode@{no\+Open\+Mode}!main.\+cpp@{main.\+cpp}}\index{main.\+cpp@{main.\+cpp}!no\+Open\+Mode@{no\+Open\+Mode}}}\mbox{\Hypertarget{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdad98d46d29c04d2062313a75bdeabe7cf}\label{main_8cpp_a0455f547a8d97c35c868b184e0c92ffdad98d46d29c04d2062313a75bdeabe7cf}} 
+no\+Open\+Mode&Имеется завершающий режим, не имеющий начала \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 18 of file main.\+cpp.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a2da1f09170f50865fafc230f89a8d076}\label{main_8cpp_a2da1f09170f50865fafc230f89a8d076}} 
+\index{main.\+cpp@{main.\+cpp}!check\+Arguments@{check\+Arguments}}
+\index{check\+Arguments@{check\+Arguments}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{check\+Arguments()}{checkArguments()}}
+{\footnotesize\ttfamily bool check\+Arguments (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]},  }\item[{\hyperlink{structerror}{error} \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция проверяющая аргументы командной строки 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & Кол-\/во аргументов \\
+\hline
+\mbox{\tt in}  & {\em argv} & Массив аргументов командной строки \\
+\hline
+\mbox{\tt out}  & {\em error} & Ошибка в результате проверки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Наличие ошибки 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a541aa5375d6ecd11d7f4b0f81c6a15cb}\label{main_8cpp_a541aa5375d6ecd11d7f4b0f81c6a15cb}} 
+\index{main.\+cpp@{main.\+cpp}!check\+Chain@{check\+Chain}}
+\index{check\+Chain@{check\+Chain}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{check\+Chain()}{checkChain()}}
+{\footnotesize\ttfamily bool check\+Chain (\begin{DoxyParamCaption}\item[{Q\+String \&}]{string\+Chain,  }\item[{\hyperlink{structerror}{error} \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция проверки строки с последовательностью действий 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em string\+Chain} & Последовательность действий, считанная из файла \\
+\hline
+\mbox{\tt out}  & {\em error} & Ошибка при записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Наличие ошибки 
+\end{DoxyReturn}
+
+
+Definition at line 425 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ab1a60efa5be8f820e68848c832c3882d}\label{main_8cpp_ab1a60efa5be8f820e68848c832c3882d}} 
+\index{main.\+cpp@{main.\+cpp}!check\+Match@{check\+Match}}
+\index{check\+Match@{check\+Match}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{check\+Match()}{checkMatch()}}
+{\footnotesize\ttfamily bool check\+Match (\begin{DoxyParamCaption}\item[{Q\+String \&}]{match\+List,  }\item[{\hyperlink{structerror}{error} \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция проверки строки с соответствием действия и режима 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em match\+List} & Cоответствия, считанные из файла \\
+\hline
+\mbox{\tt out}  & {\em error} & Ошибка при записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Наличие ошибки 
+\end{DoxyReturn}
+
+
+Definition at line 405 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Главная функция программы 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & Количество переданных аргументов командной строки \\
+\hline
+\mbox{\tt in}  & {\em argv} & Массив аргументов командной строки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0-\/при успешном выполнении, 1-\/в противном случае
+\end{DoxyReturn}
+Аргументы командной строки\+: argv\mbox{[}0\mbox{]} -\/ аргумент содержащий имя запускаемой программы; argv\mbox{[}1\mbox{]} – аргумент содержащий имя первого исходного файла; argv\mbox{[}2\mbox{]} – аргумент содержащий имя второго исходного файла; argv\mbox{[}3\mbox{]} – аргумент содержащий имя выходного файла 
+
+Definition at line 130 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a382a0dcc83833900921f4adfaee778a3}\label{main_8cpp_a382a0dcc83833900921f4adfaee778a3}} 
+\index{main.\+cpp@{main.\+cpp}!match\+Modes@{match\+Modes}}
+\index{match\+Modes@{match\+Modes}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{match\+Modes()}{matchModes()}}
+{\footnotesize\ttfamily void match\+Modes (\begin{DoxyParamCaption}\item[{const Q\+Map$<$ int, Q\+String $>$ \&}]{match,  }\item[{const Q\+Vector$<$ int $>$ \&}]{chain,  }\item[{Q\+Vector$<$ Q\+String $>$ \&}]{mapped\+Modes }\end{DoxyParamCaption})}
+
+
+
+Функция сопоставления режимов с действиями пользователя 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em match} & Cоответствия действий с режимами \\
+\hline
+\mbox{\tt in}  & {\em chain} & Последовательность действий пользователя \\
+\hline
+\mbox{\tt out}  & {\em mapped\+Modes} & Выходная последовательность переключений режимов \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ae6afbc1880937c743b2b772610481879}\label{main_8cpp_ae6afbc1880937c743b2b772610481879}} 
+\index{main.\+cpp@{main.\+cpp}!put\+To\+Map@{put\+To\+Map}}
+\index{put\+To\+Map@{put\+To\+Map}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{put\+To\+Map()}{putToMap()}}
+{\footnotesize\ttfamily bool put\+To\+Map (\begin{DoxyParamCaption}\item[{Q\+String\+List \&}]{match\+List,  }\item[{Q\+Map$<$ int, Q\+String $>$ \&}]{match }\end{DoxyParamCaption})}
+
+
+
+Функция, переписывающая считанные данные файла в контейнер Q\+Map. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em match\+List} & Соответствия, считанные из файла \\
+\hline
+\mbox{\tt out}  & {\em match} & Последовательность, записанная в контейнер \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Успешность записи 
+\end{DoxyReturn}
+
+
+Definition at line 293 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ae9a205a86702d433cdf662af57b764be}\label{main_8cpp_ae9a205a86702d433cdf662af57b764be}} 
+\index{main.\+cpp@{main.\+cpp}!put\+To\+Vector@{put\+To\+Vector}}
+\index{put\+To\+Vector@{put\+To\+Vector}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{put\+To\+Vector()}{putToVector()}}
+{\footnotesize\ttfamily bool put\+To\+Vector (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{string\+Chain,  }\item[{Q\+Vector$<$ int $>$ \&}]{chain,  }\item[{const Q\+Map$<$ int, Q\+String $>$ \&}]{match }\end{DoxyParamCaption})}
+
+
+
+Функция, переписывающая считанные данные файла в контейнер Q\+Vector. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em string\+Chain} & Последовательность действий, считанная из файла \\
+\hline
+\mbox{\tt out}  & {\em chain} & Последовательность, записанная в контейнер \\
+\hline
+\mbox{\tt in}  & {\em match} & Соответствия режимов и действий \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Успешность записи 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ac7c9d2034bdb319a0d950c60e3d49f71}\label{main_8cpp_ac7c9d2034bdb319a0d950c60e3d49f71}} 
+\index{main.\+cpp@{main.\+cpp}!q\+Error@{q\+Error}}
+\index{q\+Error@{q\+Error}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{q\+Error()}{qError()}}
+{\footnotesize\ttfamily void q\+Error (\begin{DoxyParamCaption}\item[{Q\+String}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция записи ошибки в поток ошибок 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em error} & Описание ошибки \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a90e977778f833d9619731624da4639d8}\label{main_8cpp_a90e977778f833d9619731624da4639d8}} 
+\index{main.\+cpp@{main.\+cpp}!read\+Chain@{read\+Chain}}
+\index{read\+Chain@{read\+Chain}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{read\+Chain()}{readChain()}}
+{\footnotesize\ttfamily bool read\+Chain (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{filename,  }\item[{Q\+String \&}]{string\+Chain,  }\item[{\hyperlink{structerror}{error} \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция чтения текста из входных файлов 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & Имя входного файла с последовательностью \\
+\hline
+\mbox{\tt out}  & {\em string\+Chain} & Последовательность действий \\
+\hline
+\mbox{\tt out}  & {\em error} & Ошибка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Наличие ошибки при чтении файла 
+\end{DoxyReturn}
+
+
+Definition at line 269 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ad8b84e7b624ddfa5d6c57154a1ad907b}\label{main_8cpp_ad8b84e7b624ddfa5d6c57154a1ad907b}} 
+\index{main.\+cpp@{main.\+cpp}!read\+Match@{read\+Match}}
+\index{read\+Match@{read\+Match}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{read\+Match()}{readMatch()}}
+{\footnotesize\ttfamily bool read\+Match (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{filename,  }\item[{Q\+String\+List \&}]{match\+List,  }\item[{\hyperlink{structerror}{error} \&}]{error }\end{DoxyParamCaption})}
+
+
+
+Функция чтения текста из входного файла с соответствиями 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em filename} & Имя входного файла с соответствиями \\
+\hline
+\mbox{\tt out}  & {\em match\+List} & Соответствия действий с режимами \\
+\hline
+\mbox{\tt out}  & {\em error} & Ошибка \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Наличие ошибки при чтении файла 
+\end{DoxyReturn}
+
+
+Definition at line 246 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ac5475742b333e915ab16a2494c46d752}\label{main_8cpp_ac5475742b333e915ab16a2494c46d752}} 
+\index{main.\+cpp@{main.\+cpp}!write\+Data@{write\+Data}}
+\index{write\+Data@{write\+Data}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{write\+Data()}{writeData()}}
+{\footnotesize\ttfamily bool write\+Data (\begin{DoxyParamCaption}\item[{const Q\+Vector$<$ Q\+String $>$ \&}]{mapped\+Modes,  }\item[{const Q\+String \&}]{newfilename }\end{DoxyParamCaption})}
+
+
+
+Функция, записывающая выходной текст в файл 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mapped\+Modes} & Последовательность переключений режимов \\
+\hline
+\mbox{\tt in}  & {\em newfilename} & Имя создаваемого файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Признак успешности записи данных в файл 
+\end{DoxyReturn}
+
+
+Definition at line 439 of file main.\+cpp.
+
