@@ -130,7 +130,7 @@ bool writeData(const QVector<QString> &mappedModes, const QString &newfilename);
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    _setmode(_fileno(stderr), _O_U8TEXT);
+    _setmode(_fileno(stderr), _O_U8TEXT); // Режим вывода в stderr в кодировке UTF-8
 
     error error;
     if(!checkArguments(argc, argv, error))
@@ -196,12 +196,12 @@ int main(int argc, char *argv[])
 
 bool checkArguments(int argc, char* argv[], error &error)
 {
-    if(argc < 3)
+    if(argc < 3) // Нет одного и двух входных файлов
     {
         error.type = errorType::noFileIn;
         return false;
     }
-    else if(argc < 4)
+    else if(argc < 4) // Нет выходного файла
     {
         error.type = errorType::noNameOut;
         return false;
@@ -211,33 +211,33 @@ bool checkArguments(int argc, char* argv[], error &error)
 
 void matchModes(const QMap<int, QString> &match, const QVector<int> &chain, QVector<QString> &mappedModes)
 {
-    QVector<QString> openModes;
-    QString startMode = "";
+    QVector<QString> openModes; // Список открытых режимов в порядке открытия
+    QString startMode = ""; // Начальный режим, в который приходим по завершении всех режимов
     for(QVector<int>::const_iterator chainIt = chain.begin(); chainIt != chain.end(); chainIt++)
     {
         int action = *chainIt;
-        QString mode = match[abs(action)];
+        QString mode = match[abs(action)]; // Название режима
 
-        if(startMode == "")
+        if(startMode == "") // По умолчанию первое действие становится начальным
         {
             startMode = mode;
         }
 
-        if(action > 0)
+        if(action > 0) // Начало нового режима
         {
             openModes.push_back(mode);
             mappedModes.push_back(QString::number(action) + "->" + mode);
         }
         else
         {
-            openModes.removeOne(mode);
+            openModes.removeAt(openModes.lastIndexOf(mode)); // Удалим последний открытый режим такого типа
             if(!openModes.empty())
             {
-                mappedModes.push_back(QString::number(action) + "->" + openModes.back());
+                mappedModes.push_back(QString::number(action) + "->" + openModes.back()); // Перейдем в последний открытый режим
             }
             else
             {
-                mappedModes.push_back(QString::number(action) + "->" + startMode);
+                mappedModes.push_back(QString::number(action) + "->" + startMode); // Перейдем в стартовый режим
             }
         }
     }
@@ -378,8 +378,8 @@ bool putToVector(const QString &stringChain, QVector<int> &chain, const QMap<int
         {
             if(chain[i] < 0)
             {
-                int pos = copy.indexOf(-chain[i]);
-                if(pos == -1 || pos >= i - deletedCount)
+                int pos = openModes.lastIndexOf(-chain[i],i); // Найдем индекс последнего соответствующего открывающего действия
+                if(pos == -1)
                 {
                     wasError = true;
                     QString errorDescription = "Файл содержит некорректные данные: последовательность содержит под номером ";
@@ -391,10 +391,10 @@ bool putToVector(const QString &stringChain, QVector<int> &chain, const QMap<int
                 }
                 else
                 {
-                    copy.removeOne(-chain[i]);
+                    copy.removeAt(pos); // Удалим открывающее действие
                     deletedCount++;
                 }
-                copy.removeOne(chain[i]);
+                copy.removeAt(i); // Удалим закрывающее действие
                 deletedCount++;
             }
         }
@@ -426,7 +426,9 @@ bool checkChain(QString &stringChain, error &error)
 {
     for(int i=0; i < stringChain.length(); ++i)
     {
-        if(!stringChain[i].isDigit() && stringChain[i] != '-' && !stringChain[i].isSpace())
+        bool good_symbol = stringChain[i].isDigit() || stringChain[i] == '-' || stringChain[i].isSpace();
+        bool digit_before_minus = i > 0 && stringChain[i] == '-' && stringChain[i-1].isDigit();
+        if(!good_symbol || digit_before_minus)
         {
             error.type = errorType::invalidChar;
             error.numLine = i + 1;
