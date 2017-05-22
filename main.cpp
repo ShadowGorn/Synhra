@@ -182,15 +182,18 @@ int main(int argc, char *argv[])
     }
 
     QMap<int, QString> match;
-    putToMap(matchList, match);
+    if(!putToMap(matchList, match))
+        return 1;
 
     QVector<int> chain;
-    putToVector(stringChain, chain, match);
+    if(!putToVector(stringChain, chain, match))
+        return 1;
 
     QVector<QString> mappedModes;
     matchModes(match, chain, mappedModes);
 
-    writeData(mappedModes,argv[3]);
+    if(!writeData(mappedModes,argv[3]))
+        return 1;
     return 0;
 }
 
@@ -367,25 +370,26 @@ bool putToVector(const QString &stringChain, QVector<int> &chain, const QMap<int
     int deletedCount = 0;
     for(int i = 0; i < chain.length(); ++i)
     {
-        if(!match.contains(abs(chain[i])))
+        int curPos = i - deletedCount;
+        if(!match.contains(abs(copy[curPos])))
         {
             wasError = true;
             QString errorDescription = "Файл содержит некорректные данные: последовательность содержит номер, которому не соответствует режим под номером ";
-            errorDescription += QString::number(chain[i]);
+            errorDescription += QString::number(copy[curPos]);
             qError(errorDescription);
         }
         else
         {
-            if(chain[i] < 0)
+            if(copy[curPos] < 0)
             {
-                int pos = openModes.lastIndexOf(-chain[i],i); // Найдем индекс последнего соответствующего открывающего действия
+                int pos = copy.lastIndexOf(-copy[curPos],curPos); // Найдем индекс последнего соответствующего открывающего действия
                 if(pos == -1)
                 {
                     wasError = true;
                     QString errorDescription = "Файл содержит некорректные данные: последовательность содержит под номером ";
                     errorDescription += QString::number(i+1);
                     errorDescription += " завершающее действие ";
-                    errorDescription += QString::number(-chain[i]);
+                    errorDescription += QString::number(-copy[curPos]);
                     errorDescription += ", не имеющее начального действия перед собой";
                     qError(errorDescription);
                 }
@@ -393,8 +397,9 @@ bool putToVector(const QString &stringChain, QVector<int> &chain, const QMap<int
                 {
                     copy.removeAt(pos); // Удалим открывающее действие
                     deletedCount++;
+                    curPos--;
                 }
-                copy.removeAt(i); // Удалим закрывающее действие
+                copy.removeAt(curPos); // Удалим закрывающее действие
                 deletedCount++;
             }
         }
